@@ -1,4 +1,6 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 
@@ -16,6 +18,11 @@
      | &nbsp;
      <a href="listemp">Liste Employée</a>
 
+			<form:form action="save" method="post" modelAttribute="employee">
+				<a href="${pageContext.request.contextPath }/addemp?mylocale=en">English</a>
+
+				<a href="${pageContext.request.contextPath }/addemp?mylocale=fr">Francais</a>
+			</form:form>
 		</sec:authorize>
      | &nbsp;
      <a href="logout">Logout</a>

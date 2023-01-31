@@ -2,6 +2,7 @@ package fr.formation.inti.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,10 +27,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return list;
 	}
 
-//	@Override
-//	public void addEmployee(Employee employee) {
-//		empDao.saveAll(null);
+	@Override
+	@Transactional
+	public Employee save(Employee employee) {
+		return empDao.save(employee);
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+		empDao.deleteById(id);
 		
-//	}
+	}
+
+	@Override
+	public Optional<Employee> findById(Integer id) {
+		return empDao.findById(id);
+	}
+
+
+
 		
 }

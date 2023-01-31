@@ -19,16 +19,10 @@ public class EmployeeValidator implements Validator{
 	@Override
 	public void validate(Object obj, Errors errors) {
 		/*MESSAGE ERRORS CHAMPS PARTIE 1*/
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "id", "id.required");
 		
-		Employee emp = (Employee) obj;
-		if(emp.getEmpId() <=0){
-			errors.rejectValue("id", "negativeValue", new Object[]{"'id'"}, "id can't be negative");
-		}
-		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "role", "role.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "gender", "gender.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "food", "food.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "lastName.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "title.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "startDate", "startDate.required");
 	}
 }
