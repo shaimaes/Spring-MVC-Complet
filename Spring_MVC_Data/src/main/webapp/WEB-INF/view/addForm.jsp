@@ -22,21 +22,30 @@
 			<div class="card-body">
 
 				<h2>Ajouter un Employé</h2>
+				<br>
 				<form:form action="save" method="post" modelAttribute="employee">
 
 					<div class="row">
 						<div class="col-md-6 mb-4">
 							<div class="form-outline">
+							
+								<td><spring:message code="firstName.label"/></td>
 								<form:input type="text" name="firstName" path="firstName"
-									class="form-control" placeholder="FirstName" />
+									class="form-control"  />
+									
 								<form:errors path="firstName" cssClass="error" />
 								<label class="form-label"></label>
 							</div>
 						</div>
+						
 						<div class="col-md-6 mb-4">
 							<div class="form-outline">
+							
+							<td><spring:message code="LastName.label"/></td>
+							
 								<form:input type="text" name="lastName" path="lastName"
-									class="form-control" placeholder="LastName" />
+									class="form-control"  />
+									
 								<form:errors path="lastName" cssClass="error" />
 								<label class="form-label"></label>
 							</div>
@@ -44,8 +53,9 @@
 					</div>
 					<!-- title input -->
 					<div class="form-outline mb-4">
+					<td><spring:message code="title.label"/></td>
 						<form:input type="text" name="title" path="title"
-							class="form-control" placeholder="title" />
+							class="form-control" />
 						<form:errors path="title" cssClass="error" />
 						<label class="form-label" ></label>
 					</div>
@@ -53,9 +63,11 @@
 
 
 					<div class="form-outline mb-4">
+					<td><spring:message code="startDate.label"/></td>
 						<input type="text" name="startDate"
-							class="form-control" placeholder="startDate"/>
+							class="form-control" />
 						<label class="form-label" > </label>
+						<form:errors path="startDate" cssClass="error" />
 					</div>
 
 
