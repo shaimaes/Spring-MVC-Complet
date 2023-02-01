@@ -68,6 +68,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 		return messageResource;
 	}
+	
 
 	@Bean
 	public LocaleResolver localeResolver() {

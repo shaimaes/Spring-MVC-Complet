@@ -38,7 +38,7 @@ public class Employee implements java.io.Serializable {
 	private Date endDate;
 	
 	@NotNull
-	@Size(min=2, max=45)
+	@Size(min=2, max=10)
 	private String firstName;
 	
 	@NotNull

@@ -1,3 +1,5 @@
+
+
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -61,11 +63,11 @@
 
                         </c:if>
 
-                        </div>  --%>
+                        </div> --%>
 
 
 
-	 <header class="navbar navbar-expand-md navbar-dark bg-light">
+	<header class="navbar navbar-expand-md navbar-dark bg-light">
 
 		<!-- barre de navigation -->
 
@@ -77,10 +79,7 @@
 								code="welcome.label"></spring:message>
 					</a> &nbsp;</li>
 				</ul>
-				<ul class="navbar-nav">
-					<li><a href="login"> <spring:message code="login.label"></spring:message>
-					</a> &nbsp;</li>
-				</ul>
+				
 				<ul class="navbar-nav">
 					<li><a href="userInfo"> <spring:message
 								code="userInfo.label"></spring:message>
@@ -90,10 +89,10 @@
 					<li><a href="admin">Admin</a>&nbsp;</li>
 				</ul>
 
-				<form:form action="save" method="post" modelAttribute="employee">
-					<a href="${pageContext.request.contextPath }/login?mylocale=en">English</a>
+				<form:form action="listemp" method="get" modelAttribute="employee">
+					<a href="${pageContext.request.contextPath }/listemp?mylocale=en">EN</a>
 
-					<a href="${pageContext.request.contextPath }/login?mylocale=fr">Francais</a>
+					<a href="${pageContext.request.contextPath }/listemp?mylocale=fr">FR</a>
 				</form:form>
 
 			</div>
@@ -107,13 +106,13 @@
 							<a href="listemp"> <spring:message code="listemp.label"></spring:message>
 							</a>
 
-							<form:form action="save" method="post" modelAttribute="employee">
+							<%-- <form:form action="save" method="post" modelAttribute="employee">
                                                     <a
                                                         href="${pageContext.request.contextPath }/addemp?mylocale=en">English</a>
 
                                                     <a
                                                         href="${pageContext.request.contextPath }/addemp?mylocale=fr">Francais</a>
-                                                    </form:form>
+                                                    </form:form> --%>
 						</sec:authorize>
                                             &nbsp;
                                             <!-- <a href="logout">Logout</a> -->
@@ -124,7 +123,7 @@
 			</ul>
 
 		</div>
-	</header> 
+	</header>
 </body>
 
 </html>

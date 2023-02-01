@@ -29,17 +29,21 @@
 <title>Employee</title>
 </head>
 <body>
-<jsp:include page="_menu.jsp" />
+	<%-- <jsp:include page="_menu.jsp" /> --%>
+	<jsp:include page="_navList.jsp" />
 	<div class="container">
 
-		<h3 class="text-center">Liste des employées</h3>
+		<h3 class="text-center">
+			<spring:message code="listemp.label"></spring:message>
+		</h3>
+
 		<hr>
 		<br>
 		<div class="row d-flex justify-content-center text-center">
 			<div class="col">
 
 				<h5>
-					<a href="addemp">Add Employee</a>
+					<a href="addemp"><spring:message code="addemp.label"></spring:message></a>
 				</h5>
 				<table
 					class="table table-bordered table-striped  justify-content-center"
@@ -47,10 +51,10 @@
 					id="table">
 					<tr>
 						<th>ID</th>
-						<th>FirstName</th>
-						<th>LastName</th>
-						<th>Titre</th>
-						<th>Date de création</th>
+						<th><spring:message code="firstName.label"></spring:message></th>
+						<th><spring:message code="LastName.label"></spring:message></th>
+						<th><spring:message code="title.label"></spring:message></th>
+						<th><spring:message code="startDate.label"></spring:message></th>
 						<th>Action</th>
 					</tr>
 					<c:forEach items="${employeelist}" var="employee">
@@ -66,10 +70,10 @@
                 <a class="btn btn-danger " onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');" href="/delete?id=${employee.empId}">Delete</a> --%>
 
 								<a class="btn btn-primary"
-								href="editemp?empId=<c:out value='${employee.empId}' />">Edit</a>
+								href="editemp?empId=<c:out value='${employee.empId}' />"><spring:message code="edit.label"></spring:message></a>
 								&nbsp;&nbsp;&nbsp;&nbsp; <a class="btn btn-danger "
 								onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');"
-								href="delete?id=<c:out value='${employee.empId}' />">Delete</a>
+								href="delete?id=<c:out value='${employee.empId}' />"><spring:message code="delete.label"></spring:message></a>
 
 							</td>
 						</tr>

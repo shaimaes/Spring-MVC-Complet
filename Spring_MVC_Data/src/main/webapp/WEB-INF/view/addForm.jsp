@@ -15,8 +15,8 @@
 
 </head>
 <body>
-	<%-- <jsp:include page="_menu.jsp" /> --%>
-	<header class="navbar navbar-expand-md navbar-dark bg-light">
+	<jsp:include page="_navadd.jsp" /> 
+	<%-- <header class="navbar navbar-expand-md navbar-dark bg-light">
 
 		<!-- barre de navigation -->
 
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 
-	</header>
+	</header> --%>
 	<!-- Formulaire -->
 
 	<div class="container mt-3 ">

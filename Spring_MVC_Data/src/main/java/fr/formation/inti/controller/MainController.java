@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
@@ -171,12 +173,13 @@ public class MainController {
 	public String userInfo(Model model, Principal principal) {
 
 		// After user login successfully.
-		String Username = principal.getName();
-
-		System.out.println("User Name: " + Username);
+		String userName = principal.getName();
+		System.out.println("User Name: " + userName);
+		model.addAttribute("message", "Bienvenue dans votre session");
 
 		return "userInfoPage";
 	}
+	
 
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String accessDenied(Model model, Principal principal) {
