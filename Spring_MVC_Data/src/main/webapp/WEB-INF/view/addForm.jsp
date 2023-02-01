@@ -78,9 +78,9 @@
 
 								<td><spring:message code="firstName.label" /></td>
 								<form:input type="text" name="firstName" path="firstName"
-									class="form-control" />
+									class="form-control" required="required" minlength="1" maxlength="25" />
 
-								<form:errors path="firstName" cssClass="error" />
+								<form:errors path="firstName" cssClass="errors" />
 								<label class="form-label"></label>
 							</div>
 						</div>
@@ -91,9 +91,9 @@
 								<td><spring:message code="LastName.label" /></td>
 
 								<form:input type="text" name="lastName" path="lastName"
-									class="form-control" required="required" />
+									class="form-control" required="required" minlength="1" maxlength="25" />
 
-								<form:errors path="lastName" cssClass="error" />
+								<form:errors path="lastName" cssClass="errors" />
 								<label class="form-label"></label>
 							</div>
 						</div>
@@ -102,8 +102,8 @@
 					<div class="form-outline mb-4">
 						<td><spring:message code="title.label" /></td>
 						<form:input type="text" name="title" path="title"
-							class="form-control" required="required" />
-						<form:errors path="title" cssClass="error" />
+							class="form-control" required="required" minlength="1" maxlength="25" />
+						<form:errors path="title" cssClass="errors" />
 						<label class="form-label"></label>
 					</div>
 					<!-- startdate input -->
@@ -112,13 +112,13 @@
 					<div class="form-outline mb-4">
 						<td><spring:message code="startDate.label" /></td> <input
 							type="date" name="startDate" class="form-control"
-							required="required" /> <label class="form-label"> </label>
-						<form:errors path="startDate" cssClass="error" />
+							required="required" minlength="1" maxlength="25" /> <label class="form-label"> </label>
+						<form:errors path="startDate" cssClass="errors" />
 					</div>
 
 
 					<!-- Submit button -->
-					<button type="submit" class="btn btn-primary btn-block ">Ajouter</button>
+					<button type="submit" class="btn btn-primary btn-block "><spring:message code="add.label" /></button>
 			</div>
 			</form:form>
 		</div>

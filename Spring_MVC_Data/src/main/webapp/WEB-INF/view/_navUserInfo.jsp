@@ -79,10 +79,7 @@
 								code="welcome.label"></spring:message>
 					</a> &nbsp;</li>
 				</ul>
-				<ul class="navbar-nav">
-					<li><a href="login"> <spring:message code="login.label"></spring:message>
-					</a> &nbsp;</li>
-				</ul>
+				
 				<ul class="navbar-nav">
 					<li><a href="userInfo"> <spring:message
 								code="userInfo.label"></spring:message>
@@ -92,7 +89,7 @@
 					<li><a href="admin">Admin</a>&nbsp;</li>
 				</ul>
 
-				<form:form action="save" method="post" modelAttribute="employee">
+				<form:form action="userInfo" method="get" modelAttribute="employee">
 					<a href="${pageContext.request.contextPath }/userInfo?mylocale=en">EN</a>
 
 					<a href="${pageContext.request.contextPath }/userInfo?mylocale=fr">FR</a>
@@ -119,11 +116,35 @@
 						</sec:authorize>
                                             &nbsp;
                                             <!-- <a href="logout">Logout</a> -->
+
+					</c:if>
+			</ul>
+			
+			<ul class="navbar-nav flex-row">
+				<li class="nav-item me-3 me-lg-0"><c:if
+						test="${pageContext.request.userPrincipal.name != null}">
+						<sec:authorize access="hasRole('USER')">
+                                                &nbsp;
+                                                <!-- <a href="listemp">Liste Employée</a> -->
+							<a href="listempUser"> <spring:message code="listemp.label"></spring:message>
+							</a>
+
+							<%-- <form:form action="save" method="post" modelAttribute="employee">
+                                                    <a
+                                                        href="${pageContext.request.contextPath }/addemp?mylocale=en">English</a>
+
+                                                    <a
+                                                        href="${pageContext.request.contextPath }/addemp?mylocale=fr">Francais</a>
+                                                    </form:form> --%>
+						</sec:authorize>
+                                            &nbsp;
+                                            <!-- <a href="logout">Logout</a> -->
 						<a href="logout"> <spring:message code="logout.label"></spring:message>
 						</a>
 
 					</c:if>
 			</ul>
+			
 
 		</div>
 	</header>

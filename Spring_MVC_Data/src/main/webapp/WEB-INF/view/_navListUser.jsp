@@ -89,37 +89,18 @@
 					<li><a href="admin">Admin</a>&nbsp;</li>
 				</ul>
 
-				<form:form action="admin" method="get" modelAttribute="employee">
-					<a href="${pageContext.request.contextPath }/admin?mylocale=en">EN</a>
+				<form:form action="listemp" method="get" modelAttribute="employee">
+					<a href="${pageContext.request.contextPath }/listempUser?mylocale=en">EN</a>
 
-					<a href="${pageContext.request.contextPath }/admin?mylocale=fr">FR</a>
+					<a href="${pageContext.request.contextPath }/listempUser?mylocale=fr">FR</a>
 				</form:form>
 
 			</div>
 
 			<ul class="navbar-nav flex-row">
-				<li class="nav-item me-3 me-lg-0"><c:if
-						test="${pageContext.request.userPrincipal.name != null}">
-						<sec:authorize access="hasRole('ADMIN')">
-                                                &nbsp;
-                                                <!-- <a href="listemp">Liste Employée</a> -->
-							<a href="listemp"> <spring:message code="listemp.label"></spring:message>
-							</a>
-
-							<%-- <form:form action="save" method="post" modelAttribute="employee">
-                                                    <a
-                                                        href="${pageContext.request.contextPath }/addemp?mylocale=en">English</a>
-
-                                                    <a
-                                                        href="${pageContext.request.contextPath }/addemp?mylocale=fr">Francais</a>
-                                                    </form:form> --%>
-						</sec:authorize>
-                                            &nbsp;
-                                            <!-- <a href="logout">Logout</a> -->
-						<a href="logout"> <spring:message code="logout.label"></spring:message>
+				<li class="nav-item me-3 me-lg-0">
+				<a href="logout"> <spring:message code="logout.label"></spring:message>
 						</a>
-
-					</c:if>
 			</ul>
 
 		</div>

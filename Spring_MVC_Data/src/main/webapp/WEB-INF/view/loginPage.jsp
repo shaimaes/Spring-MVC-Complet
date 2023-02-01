@@ -160,19 +160,20 @@
 
 									<div class="d-flex justify-content-around">
 										<button type="submit" class="btn btn-primary text-center">
-											Se connecter</button>
+											<s:message code="login.label"></s:message></button>
 									</div>
 
 									<!-- /login?error=true -->
 									<c:if test="${param.error == 'true'}">
 										<div style="color: red; margin: 10px 0px;">
 
-											Login Failed!!!<br /> Reason :
+											Login Failed!!!<br /> Reason : Email ou mot de passe incorrect
 											${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
 
 										</div>
 									</c:if>
 									<br>
+									
 								</div>
 							</div>
 					</div>

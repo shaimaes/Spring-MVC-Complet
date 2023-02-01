@@ -65,7 +65,7 @@
 
 
 
-	 <header class="navbar navbar-expand-md navbar-dark bg-light">
+	<header class="navbar navbar-expand-md navbar-dark bg-light">
 
 		<!-- barre de navigation -->
 
@@ -73,27 +73,26 @@
 			class="container-fluid justify-content-center justify-content-md-between">
 			<div class="d-flex my-2 my-sm-0">
 				<ul class="navbar-nav">
-					<li><a href="welcome"> <spring:message
-								code="welcome.label"></spring:message>
-					</a> &nbsp;</li>
+					<li><a href="welcome"> <%-- <spring:message	code="welcome.label"></spring:message> --%>
+					</a></li>
 				</ul>
 				<ul class="navbar-nav">
-					<li><a href="login"> <spring:message code="login.label"></spring:message>
-					</a> &nbsp;</li>
+					<li><a href="login"> <spring:message code="login.label" />
+					</a>&nbsp;</li>
 				</ul>
 				<ul class="navbar-nav">
 					<li><a href="userInfo"> <spring:message
 								code="userInfo.label"></spring:message>
-					</a> &nbsp;</li>
+					</a>&nbsp;</li>
 				</ul>
 				<ul class="navbar-nav">
-					<li><a href="admin">Admin</a>&nbsp;</li>
+					<li><a href="admin">Admin</a></li>
 				</ul>
+				&nbsp;
+				<form:form action="login" method="get" modelAttribute="employee">
+					<a href="${pageContext.request.contextPath }/login?mylocale=en">EN</a>
 
-				<form:form action="save" method="post" modelAttribute="employee">
-					<a href="${pageContext.request.contextPath }/login?mylocale=en">English</a>
-
-					<a href="${pageContext.request.contextPath }/login?mylocale=fr">Francais</a>
+					<a href="${pageContext.request.contextPath }/login?mylocale=fr">FR</a>
 				</form:form>
 
 			</div>
@@ -108,23 +107,21 @@
 							</a>
 
 							<form:form action="save" method="post" modelAttribute="employee">
-                                                    <a
-                                                        href="${pageContext.request.contextPath }/addemp?mylocale=en">English</a>
+								<a href="${pageContext.request.contextPath }/addemp?mylocale=en">EN</a>
 
-                                                    <a
-                                                        href="${pageContext.request.contextPath }/addemp?mylocale=fr">Francais</a>
-                                                    </form:form>
-						</sec:authorize>
-                                            &nbsp;
+								<a href="${pageContext.request.contextPath }/addemp?mylocale=fr">FR</a>
+							</form:form>
+						
+                                </sec:authorize>     
+                                                     &nbsp;
                                             <!-- <a href="logout">Logout</a> -->
-						<a href="logout"> <spring:message code="logout.label"></spring:message>
-						</a>
-
+							<a href="logout"> <spring:message code="logout.label"></spring:message>
+							</a>
 					</c:if>
 			</ul>
 
 		</div>
-	</header> 
+	</header>
 </body>
 
 </html>

@@ -77,6 +77,12 @@ public class MainController {
 		return "Employee";
 	}
 	
+	@RequestMapping(value = "/listempUser", method = RequestMethod.GET)
+	public String lalistedesemployeesUser(Model model) {
+		model.addAttribute("employeelist", empServ.getAllEmployees());
+		return "EmployeeUser";
+	}
+	
 	/*FORMAT DATE*/
 	@InitBinder
 	public void initBinder(WebDataBinder webDataBinder) {
@@ -147,8 +153,8 @@ public class MainController {
 
 	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
 	public String welcomePage(Model model) {
-		model.addAttribute("title", "Welcome");
-		model.addAttribute("message", "This is welcome page!");
+//		model.addAttribute("title", "Welcome");
+//		model.addAttribute("message1", "This is welcome page!");
 		return "welcomePage";
 	}
 
@@ -175,7 +181,6 @@ public class MainController {
 		// After user login successfully.
 		String userName = principal.getName();
 		System.out.println("User Name: " + userName);
-		model.addAttribute("message", "Bienvenue dans votre session");
 
 		return "userInfoPage";
 	}

@@ -15,7 +15,7 @@
 <title>${title}</title>
 </head>
 <body>
-	<jsp:include page="_menu.jsp" />
+	<jsp:include page="_navAdminPage.jsp" />
 
 	<h2><spring:message code="adminPage.label"></spring:message></h2>
 

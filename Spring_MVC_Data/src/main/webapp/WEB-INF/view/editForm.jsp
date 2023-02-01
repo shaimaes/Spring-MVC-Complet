@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-	
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,47 +16,81 @@
 <title>Edit Form</title>
 </head>
 <body>
-<div class="container mt-3 ">
+<jsp:include page="_navedit.jsp" /> 
+	<div class="container mt-3 ">
 		<div class="card">
 			<div class="card-body">
 
-				<h2>Modifier l'Employee n°${emp.empId}</h2>
-				<form action="editemp" method="post" modelAttribute="employee">
-<hr>
-		<br>
-		
+				<h2>
+					<spring:message code="ModEmp.label"></spring:message>
+					n°${employee.empId}
+				</h2>
+				<form:form action="editemp" method="post" modelAttribute="employee">
+					<hr>
+					<br>
 
-			<div class="form-group">
-				<label for="firstName">First Name</label> <input type="text"
-					class="form-control" name="firstName"
-					placeholder="Entrez votre prénom" value="${employee.firstName}">
+
+					 <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                
+                            <td>
+                                <spring:message code="firstName.label" />
+                            </td>
+                            <form:input type="text" name="firstName" path="firstName" class="form-control" required="required"
+                                minlength="1" maxlength="25" value="${employee.firstName}" />
+                
+                            <form:errors path="firstName" cssClass="errors" />
+                            <label class="form-label"></label>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                
+                            <td>
+                                <spring:message code="LastName.label" />
+                            </td>
+                
+                            <form:input type="text" name="lastName" path="lastName" class="form-control" required="required"
+                                minlength="1" maxlength="25" value="${employee.lastName}" />
+                
+                            <form:errors path="lastName" cssClass="errors" />
+                            <label class="form-label"></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- title input -->
+                <div class="form-outline mb-4">
+                    <td>
+                        <spring:message code="title.label" />
+                    </td>
+                    <form:input type="text" name="title" path="title" class="form-control" required="required" minlength="1"
+                        maxlength="25" value="${employee.empId }" />
+                    <form:errors path="title" cssClass="errors" />
+                    <label class="form-label"></label>
+                </div>
+                <!-- startdate input -->
+                
+                
+                <div class="form-outline mb-4">
+                    <td>
+                        <spring:message code="startDate.label" />
+                    </td> <input type="date" name="startDate" class="form-control" required="required" minlength="1" maxlength="25" value="${employee.startDate}" />
+                    <label class="form-label"> </label>
+                    <form:errors path="startDate" cssClass="errors" />
+                </div>
+                
+                
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block ">
+                    <spring:message code="edit.label" />
+                </button>
+                </div>
+                </form:form>
 			</div>
-			<div class="form-group">
-				<label for="lastName">Last Name</label> <input type="text"
-					class="form-control" name="lastName" placeholder="Entrez votre nom"
-					value="${employee.lastName}">
-			</div>
-
-			<div class="form-group">
-				<label for="startDate">Date de création</label> <input type="text"
-					class="form-control" name="startDate"
-					placeholder="Entrez la date de création" value="${employee.startDate}">
-			</div>
-			<div class="form-group">
-				<label for="title">Titre</label> <input type="text"
-					class="form-control" name="title" placeholder="Entrez votre titre"
-					value="${employee.title}">
-			</div>
-			<input type="hidden" name="empId" value="${employee.empId }">
-
-			<button type="submit" class="btn btn-primary">Editer</button>
-			<br></br>
-
-
-		</form>
+		</div>
 	</div>
-</div>
-</div>
 
 </body>
 </html>

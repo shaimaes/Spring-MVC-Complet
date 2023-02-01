@@ -89,10 +89,10 @@
 					<li><a href="admin">Admin</a>&nbsp;</li>
 				</ul>
 
-				<form:form action="admin" method="get" modelAttribute="employee">
-					<a href="${pageContext.request.contextPath }/admin?mylocale=en">EN</a>
+				<form:form action="welcome" method="get" modelAttribute="employee">
+					<a href="${pageContext.request.contextPath }/welcome?mylocale=en">EN</a>
 
-					<a href="${pageContext.request.contextPath }/admin?mylocale=fr">FR</a>
+					<a href="${pageContext.request.contextPath }/welcome?mylocale=fr">FR</a>
 				</form:form>
 
 			</div>

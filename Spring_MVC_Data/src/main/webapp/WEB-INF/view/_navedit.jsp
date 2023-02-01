@@ -38,35 +38,6 @@
 
 <body>
 
-	<%-- <div style="border: 1px solid #ccc; padding: 5px; margin-bottom: 20px;">
-
-                        <a href="welcome">Welcome</a> | &nbsp; <a href="login">Login</a> | &nbsp;
-
-                        <a href="userInfo">User Info</a> | &nbsp; <a href="admin">Admin</a>
-
-                        <!--  &nbsp;
-     <a href="/listemp">Logout</a> -->
-
-                        <c:if test="${pageContext.request.userPrincipal.name != null}">
-                            <sec:authorize access="hasRole('ADMIN')">
-                                | &nbsp;
-                                <a href="listemp">Liste Employée</a>
-
-                                <form:form action="save" method="post" modelAttribute="employee">
-                                    <a href="${pageContext.request.contextPath }/addemp?mylocale=en">English</a>
-
-                                    <a href="${pageContext.request.contextPath }/addemp?mylocale=fr">Francais</a>
-                                </form:form>
-                            </sec:authorize>
-                            | &nbsp;
-                            <a href="logout">Logout</a>
-
-                        </c:if>
-
-                        </div> --%>
-
-
-
 	<header class="navbar navbar-expand-md navbar-dark bg-light">
 
 		<!-- barre de navigation -->
@@ -74,25 +45,16 @@
 		<div
 			class="container-fluid justify-content-center justify-content-md-between">
 			<div class="d-flex my-2 my-sm-0">
-				<ul class="navbar-nav">
-					<li><a href="welcome"> <spring:message
-								code="welcome.label"></spring:message>
-					</a> &nbsp;</li>
-				</ul>
 				
-				<ul class="navbar-nav">
-					<li><a href="userInfo"> <spring:message
-								code="userInfo.label"></spring:message>
-					</a> &nbsp;</li>
-				</ul>
+				
 				<ul class="navbar-nav">
 					<li><a href="admin">Admin</a>&nbsp;</li>
 				</ul>
 
-				<form:form action="admin" method="get" modelAttribute="employee">
-					<a href="${pageContext.request.contextPath }/admin?mylocale=en">EN</a>
+				<form:form action="save" method="post" modelAttribute="employee">
+					<a href="${pageContext.request.contextPath }/editemp?mylocale=en">EN</a>
 
-					<a href="${pageContext.request.contextPath }/admin?mylocale=fr">FR</a>
+					<a href="${pageContext.request.contextPath }/editemp?mylocale=fr">FR</a>
 				</form:form>
 
 			</div>

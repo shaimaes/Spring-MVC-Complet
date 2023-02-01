@@ -10,12 +10,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>${title}</title>
+<title>UserInfo</title>
 </head>
 <body>
 	<jsp:include page="_navUserInfo.jsp" />
 
 
-	<h1>Message : ${message}</h1>
+	<h1>
+		<spring:message code="welcomeUser.label"></spring:message>
+	</h1>
 </body>
 </html>
