@@ -14,6 +14,7 @@ import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
@@ -52,6 +53,12 @@ public class MainController {
 	}
 	
 
+//	@RequestMapping("/changeLanguage")
+//	public String changeLanguage(Locale locale, Model model) {
+//	    localeResolver.setLocale(request, response, locale);
+//	    return "redirect:/";
+//	}
+	
 	@ModelAttribute("employee")
 	public Employee createEmployeeModel() {
 		// ModelAttribute value should be same as used in the empSave.jsp
@@ -78,12 +85,19 @@ public class MainController {
 
 	/*ADD EMPLOYEE*/
 	@GetMapping(value = "/addemp")
-	public String SaveEmployee(Employee employee) {
+	public String SaveEmployee(@ModelAttribute("employee") Employee employee) {
+		
 		return "addForm";
 	}
 
 	@PostMapping(value = "/save")
 	public String SaveEmployeePost(@Validated @ModelAttribute("employee") Employee employee, BindingResult br) {
+		
+		ValidationUtils.rejectIfEmpty(br, "firstName", "firstName.required");
+		ValidationUtils.rejectIfEmpty(br, "lastName", "lastName.required");
+		ValidationUtils.rejectIfEmpty(br, "title", "title.required");
+		ValidationUtils.rejectIfEmpty(br, "startDate", "startDate.required");
+		
 		if (br.hasErrors()) {
 			return "addForm";
 		}
@@ -94,7 +108,7 @@ public class MainController {
 
 	}
 	
-	
+
 	/*EDITER EMPLOYEE*/
 	
 	

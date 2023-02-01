@@ -20,9 +20,9 @@ public class EmployeeValidator implements Validator{
 	public void validate(Object obj, Errors errors) {
 		/*MESSAGE ERRORS CHAMPS PARTIE 1*/
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName", "firstName.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "lastName.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "title.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "startDate", "startDate.required");
+		ValidationUtils.rejectIfEmpty(errors, "firstName", "firstName.required");
+		ValidationUtils.rejectIfEmpty(errors, "lastName", "lastName.required");
+		ValidationUtils.rejectIfEmpty(errors, "title", "title.required");
+		ValidationUtils.rejectIfEmpty(errors, "startDate", "startDate.required");
 	}
 }

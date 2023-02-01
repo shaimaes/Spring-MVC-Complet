@@ -9,6 +9,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 /**
  * @author IN-TR-018
@@ -19,7 +23,11 @@ import javax.persistence.Table;
 public class UserApp {
 	
 	private Integer idUser;
+	@Email
 	private String email;
+	
+	@NotNull
+	@Size(min=2, max=20)
 	private String password;
 	private Date dateCreation;
 	private String firstName;
